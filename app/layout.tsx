@@ -1,6 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Tiro_Devanagari_Marathi, Yellowtail } from "next/font/google";
 import "./globals.css";
+
+const devanagari = Tiro_Devanagari_Marathi({
+  variable: "--font-devanagari",
+  subsets: ["latin"],
+  weight: ["400"],
+})
+
+const yellowtail = Yellowtail({
+  variable: "--font-yellowtail",
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${devanagari.variable} ${yellowtail.variable} antialiased`}
       >
         {children}
       </body>
